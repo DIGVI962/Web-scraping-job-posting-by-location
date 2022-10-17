@@ -32,13 +32,12 @@ def print_all_jobs(results):
     job_elems = results.find_all("section", class_="card-content")
 
     for job_elem in job_elems:
-        # keep in mind that each job_elem is another BeautifulSoup object!
         title_elem = job_elem.find("h2", class_="title")
         company_elem = job_elem.find("div", class_="company")
         location_elem = job_elem.find("div", class_="location")
         if None in (title_elem, company_elem, location_elem):
             continue
-            # print(job_elem.prettify())  # to inspect the 'None' element
+            # print(job_elem.prettify())
         print(title_elem.text.strip())
         link_elem = title_elem.find("a")
         print(link_elem["href"])
